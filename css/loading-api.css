@@ -1,0 +1,28 @@
+#loading-api-container:not(.hide) {
+    z-index: 1337;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#loading-api {
+    width: 90%;
+    max-width: 400px;
+    margin: auto;
+}
+
+
+#loading-api .collection {
+    padding-top: 15px;
+    background: none;
+    border: none;
+}
+
+#loading-api .collection-item {
+    background: inherit;
+    height: auto;
+}

@@ -1,0 +1,15 @@
+#champions-possedes {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.champion-img {
+    cursor: pointer;
+    margin: 5px;
+    width: 60px;
+}
+
+.champion-img[ignorer="true"] {
+    opacity: 0.5;
+}

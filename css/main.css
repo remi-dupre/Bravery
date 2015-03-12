@@ -1,0 +1,18 @@
+html, body {
+    height : 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.model {
+    display: none;
+}
+
+.hide {
+    opacity: 0;
+    display: none;
+}
+
+ul.tabs, ul.tabs > li.tab {
+    background: none; /* Ne masque pas l'ombre de la navbar */
+}

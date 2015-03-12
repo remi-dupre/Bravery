@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css" />
+	<link type="text/css" rel="stylesheet" href="css/select-champion.css" />
+	<link type="text/css" rel="stylesheet" href="css/loading-api.css" />
+	<link type="text/css" rel="stylesheet" href="css/main.css" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+	<div id="loading-api-container" class="grey lighten-3 hide">
+		<div id="loading-api">
+			<div class="progress">
+				<div class="indeterminate"></div>
+			</div>
+
+			<ul class="collection" id="api-liste">
+				<li class="collection-item avatar fichier-api model">
+					<i class="mdi-action-autorenew circle"></i>
+					<span class="title">Title</span>
+					<p>Description</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<nav>
+		<div class="nav-wrapper">
+			<a href="#" class="brand-logo">Bravery</a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="javascript.html">About</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="row" id="configurer">
+		<div class="col s12 z-depth-2 red lighten-5">
+			<ul class="tabs">
+				<li class="tab col s4">
+					<a class="active" href="#selection-carte">Carte</a>
+				</li>
+				<li class="tab col s4">
+					<a href="#selection-champion">Champions</a>
+				</li>
+				<li class="tab col s4">
+					<a href="#selection-mode">Mode</a>
+				</li>
+			</ul>
+		</div>
+
+		<div id="selection-carte" class="col s12">
+			<div class="container">
+				<!-- page -->
+				<ul class="row">
+					<li class="col s12 m4" style="opacity:0">
+						<div class="card">
+							<div class="card-image">
+								<img class="image-sr">
+								<span class="card-title">Faille de l'invocateur</span>
+							</div>
+							<div class="card-content">
+								<p>La map de 5c5 de league of legends</p>
+							</div>
+							<div class="card-action">
+								<a href="#">Sélectionner</a>
+							</div>
+						</div>
+					</li>
+					<li class="col s12 m4" style="opacity:0">
+						<div class="card">
+							<div class="card-image">
+								<img class="image-threeline">
+								<span class="card-title">Forêt torturée</span>
+							</div>
+							<div class="card-content">
+								<p>La map de 3c3 de league of legends</p>
+							</div>
+							<div class="card-action">
+								<a href="#">Sélectionner</a>
+							</div>
+						</div>
+					</li>
+					<li class="col s12 m4" style="opacity:0">
+						<div class="card">
+							<div class="card-image">
+								<img class="image-abime">
+								<span class="card-title">Abîme hurlante</span>
+							</div>
+							<div class="card-content">
+								<p>La map pour l'aram</p>
+							</div>
+							<div class="card-action">
+								<a href="#">Sélectionner</a>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="selection-champion" class="col s12">
+			<div class="container">
+				<!-- page -->
+				<div class="row">
+					<div class="input-field col offset-m6 offset-l9 s12 m6 l3">
+						<i class="mdi-action-search prefix"></i>
+						<input id="recherche-champ" type="text">
+						<label for="recherche">Chercher</label>
+					</div>
+				</div>
+				<ul id="champions-possedes" class="row">
+					<li class="champion-img model">
+						<img class="responsive-img" src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/Aatrox.png" />
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="selection-mode" class="col s12">Test 3</div>
+	</div>
+
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"></script>
+
+	<script type="text/javascript" src="js/lol-api.js"></script>
+	<script type="text/javascript" src="js/load-api.js"></script>
+	<script type="text/javascript" src="js/champion-select.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			chargerApi(function() {
+				$(".image-sr").attr("src", imgUrl(api.map["11"].image));
+				$(".image-threeline").attr("src", imgUrl(api.map["10"].image));
+				$(".image-abime").attr("src", imgUrl(api.map["12"].image));
+				showStaggeredList('.row');
+				listerChampions();
+			});
+		});
+	</script>
+</body>
+
+</html>
