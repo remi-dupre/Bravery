@@ -1,0 +1,8 @@
+.carte-select {
+    cursor: pointer;
+}
+
+.carte-select[selected="selected"] {
+    border: 2px solid;
+    color: lightgreen;
+}

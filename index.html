@@ -4,6 +4,7 @@
 <head>
 	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css" />
 	<link type="text/css" rel="stylesheet" href="css/select-champion.css" />
+	<link type="text/css" rel="stylesheet" href="css/select-carte.css" />
 	<link type="text/css" rel="stylesheet" href="css/loading-api.css" />
 	<link type="text/css" rel="stylesheet" href="css/main.css" />
 
@@ -57,44 +58,44 @@
 				<!-- page -->
 				<ul class="row">
 					<li class="col s12 m4" style="opacity:0">
-						<div class="card">
+						<div class="card carte-select" mapid=11>
 							<div class="card-image">
-								<img class="image-sr">
+								<img class="image-sr" src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/map/map11.png">
 								<span class="card-title">Faille de l'invocateur</span>
 							</div>
 							<div class="card-content">
 								<p>La map de 5c5 de league of legends</p>
 							</div>
 							<div class="card-action">
-								<a href="#">Sélectionner</a>
+								<a>Sélectionner</a>
 							</div>
 						</div>
 					</li>
 					<li class="col s12 m4" style="opacity:0">
-						<div class="card">
+						<div class="card carte-select" mapid=10>
 							<div class="card-image">
-								<img class="image-threeline">
+								<img class="image-threeline" src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/map/map10.png">
 								<span class="card-title">Forêt torturée</span>
 							</div>
 							<div class="card-content">
 								<p>La map de 3c3 de league of legends</p>
 							</div>
 							<div class="card-action">
-								<a href="#">Sélectionner</a>
+								<a>Sélectionner</a>
 							</div>
 						</div>
 					</li>
 					<li class="col s12 m4" style="opacity:0">
-						<div class="card">
+						<div class="card carte-select" mapid=12>
 							<div class="card-image">
-								<img class="image-abime">
+								<img class="image-abime" src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/map/map12.png">
 								<span class="card-title">Abîme hurlante</span>
 							</div>
 							<div class="card-content">
 								<p>La map pour l'aram</p>
 							</div>
 							<div class="card-action">
-								<a href="#">Sélectionner</a>
+								<a>Sélectionner</a>
 							</div>
 						</div>
 					</li>
@@ -130,6 +131,7 @@
 	<script type="text/javascript" src="js/lol-api.js"></script>
 	<script type="text/javascript" src="js/load-api.js"></script>
 	<script type="text/javascript" src="js/champion-select.js"></script>
+	<script type="text/javascript" src="js/carte-select.js"></script>
 	<script type="text/javascript">
 		$(function() {
 			chargerApi(function() {
