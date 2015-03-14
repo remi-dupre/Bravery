@@ -1,0 +1,15 @@
+language: javascript
+install:
+- npm install -g grunt-cli
+- npm update
+- grunt propre
+- zip -9r bravery-build ./
+- travis setup releases
+deploy:
+provider: releases
+file:
+- bravery-build
+skip_cleanup: true
+on:
+tags: true
+all_branches: true
