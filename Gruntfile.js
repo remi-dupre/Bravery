@@ -55,13 +55,21 @@ module.exports = function(grunt) {
         },
         jshint: {
             all: ['Gruntfile.js']
-        }
+        },
+        clean : [
+            'css/src',
+            'js/src',
+            'node_modules',
+            'Gruntfile.js', 'package.json'
+        ]
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
     grunt.registerTask('default', ['uglify', 'cssmin', 'jshint', 'copy']);
+    grunt.registerTask('propre', ['uglify', 'cssmin', 'jshint', 'copy', 'clean']);
 };
