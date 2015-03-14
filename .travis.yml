@@ -1,6 +1,5 @@
 language: javascript
 install:
-- gem install travis
 - npm install -g grunt-cli
 - npm update
 - grunt propre
@@ -10,5 +9,6 @@ deploy:
   api_key:
     secure: TEB/UF7GiZ2pgfKEf/0JxhsQsKqRiYk+AS2ySsBlIRrha6JUaO2aITqDLZuntmfbCHwHa4j9atqdaw7qZU28DJa5t+HPV3g3ELDsQOP3yElYy5tTdJ+/USNvTj1064eI48Fa/jIRi3mnSwRB2Y21IBNSycFHVeM74tHfT0owq8M=
   file: bravery-build.zip
+  skip_cleanup: true
   on:
     repo: remi100756/Bravery
