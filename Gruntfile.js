@@ -60,7 +60,8 @@ module.exports = function(grunt) {
             'css/src',
             'js/src',
             'node_modules',
-            'Gruntfile.js', 'package.json'
+            '.git',
+            'Gruntfile.js', 'package.json', '.travis.yml'
         ]
     });
 
