@@ -13,3 +13,17 @@
 .champion-img[ignorer="true"] {
     opacity: 0.5;
 }
+
+.champ-menu {
+    display: flex;
+    align-items: center;
+}
+
+.champ-menu > .button-box {
+    margin-left: 11px;
+    color: grey;
+}
+
+.champ-menu > .button-box > i {
+    cursor: pointer;
+}

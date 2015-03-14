@@ -6,3 +6,8 @@
     border: 2px solid;
     color: lightgreen;
 }
+
+ul.liste-maps{
+    display: flex;
+    flex-flow: row wrap;
+}

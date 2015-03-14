@@ -1,6 +1,6 @@
 #loading-api-container:not(.hide) {
     z-index: 1337;
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 0px;
     height: 100%;

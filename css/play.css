@@ -1,0 +1,16 @@
+.result {
+    margin-top: 40px;
+}
+
+h3.champ-name {
+    margin-bottom: 0px;
+}
+
+h5.champ-citation {
+    margin-top: 0px;
+    color: lightgrey;
+}
+
+.build {
+    margin-top: 30px;
+}

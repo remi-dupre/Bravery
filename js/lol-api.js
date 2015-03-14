@@ -5,3 +5,7 @@ function imgUrl(img) {
      
     return "http://ddragon.leagueoflegends.com/cdn/5.2.1/img/"+ img.group +"/"+ img.full;
 }
+
+function champLoadingImg(champ) {
+    return "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champ.key + "_" + champ.skins[0].num + ".jpg";
+}

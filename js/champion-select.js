@@ -1,5 +1,11 @@
 $(function() {
     $("#recherche-champ").on("input", trierChampions);
+    $("#select-all").click(function() {
+        $(".champion-img:not(.model)").attr("ignorer", "false");
+    });
+    $("#unselect-all").click(function() {
+        $(".champion-img:not(.model)").attr("ignorer", "true");
+    });
 });
 
 
@@ -7,7 +13,7 @@ function listerChampions() {
     /* Crée la liste des champions
      * Dépend de l'api */
     
-    var enregistres = localStorage["champions_desactives"].split(","); // Les champions a désactiver
+    var enregistres = (localStorage["champions_desactives"] || "").split(","); // Les champions a désactiver
     for(var champ in api.champion) {
         var icone = $(".champion-img.model").clone().removeClass("model");
         icone.find("img").attr("src", imgUrl(api.champion[champ].image));
@@ -52,4 +58,28 @@ function championsDesactives() {
 function comparerChampions(a, b) {
     /* Donne l'odre des deux champions passés en argument */
     return $(a).attr("nom") > $(b).attr("nom");
+}
+
+/* Fonctions de tirage */
+
+var championPool = []; // Liste des champions qui peuvent être tirés
+
+function initChampionPool() {
+    /* Re-génère la liste des champions qui peuvent être tirés */
+    championPool = [];
+    $('.champion-img:not([ignorer="true"]):not(.model)').each(function() {
+        championPool.push($(this).attr("nom"));
+    });
+}
+
+function randomChamp() {
+    /* Retourne le nom d'un champion tiré aléatoirement
+        - Ne tire que les champions sélectionnés
+        - Ne retire pas le nom d'un champion tant que tous les champions n'ont pas été tirés
+    */
+    if( championPool.length == 0 ) initChampionPool();
+    var i = Math.trunc(Math.random() * championPool.length);
+    var champion = championPool[i];
+    championPool.splice(i, 1);
+    return champion;
 }

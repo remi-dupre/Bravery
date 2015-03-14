@@ -16,3 +16,7 @@ html, body {
 ul.tabs, ul.tabs > li.tab {
     background: none; /* Ne masque pas l'ombre de la navbar */
 }
+
+.fixed-buttons-stack > a:not(:first-child) {
+    margin-left: 15px;
+}

@@ -6,6 +6,7 @@
 	<link type="text/css" rel="stylesheet" href="css/select-champion.css" />
 	<link type="text/css" rel="stylesheet" href="css/select-carte.css" />
 	<link type="text/css" rel="stylesheet" href="css/loading-api.css" />
+	<link type="text/css" rel="stylesheet" href="css/play.css" />
 	<link type="text/css" rel="stylesheet" href="css/main.css" />
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -33,7 +34,8 @@
 		<div class="nav-wrapper">
 			<a href="#" class="brand-logo">Bravery</a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
-				<li><a href="javascript.html">About</a></li>
+				<li><a href="javascript.html">About</a>
+				</li>
 			</ul>
 		</div>
 	</nav>
@@ -56,11 +58,11 @@
 		<div id="selection-carte" class="col s12">
 			<div class="container">
 				<!-- page -->
-				<ul class="row">
-					<li class="col s12 m4" style="opacity:0">
-						<div class="card carte-select" mapid=11>
+				<ul class="row liste-maps">
+					<li class="col s12 m6" style="opacity:0">
+						<div class="card carte-select" mapid=1>
 							<div class="card-image">
-								<img class="image-sr" src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/map/map11.png">
+								<img class="image-sr" src="http://cdn.leagueoflegends.com/game-info/1.1.9/images/content/modes-sr.jpg">
 								<span class="card-title">Faille de l'invocateur</span>
 							</div>
 							<div class="card-content">
@@ -71,10 +73,10 @@
 							</div>
 						</div>
 					</li>
-					<li class="col s12 m4" style="opacity:0">
+					<li class="col s12 m6" style="opacity:0">
 						<div class="card carte-select" mapid=10>
 							<div class="card-image">
-								<img class="image-threeline" src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/map/map10.png">
+								<img class="image-threeline" src="http://cdn.leagueoflegends.com/game-info/1.1.9/images/content/modes-tt.jpg">
 								<span class="card-title">Forêt torturée</span>
 							</div>
 							<div class="card-content">
@@ -85,10 +87,10 @@
 							</div>
 						</div>
 					</li>
-					<li class="col s12 m4" style="opacity:0">
+					<li class="col s12 m6" style="opacity:0">
 						<div class="card carte-select" mapid=12>
 							<div class="card-image">
-								<img class="image-abime" src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/map/map12.png">
+								<img class="image-abime" src="http://cdn.leagueoflegends.com/game-info/1.1.9/images/content/modes-ha.jpg">
 								<span class="card-title">Abîme hurlante</span>
 							</div>
 							<div class="card-content">
@@ -99,15 +101,32 @@
 							</div>
 						</div>
 					</li>
+					<li class="col s12 m6" style="opacity:0">
+						<div class="card carte-select" mapid=8>
+							<div class="card-image">
+								<img class="image-cristal" src="http://cdn.leagueoflegends.com/game-info/1.1.9/images/content/modes-cs.jpg">
+								<span class="card-title">Brêche de cristal</span>
+							</div>
+							<div class="card-content">
+								<p>La map du dominion</p>
+							</div>
+							<div class="card-action">
+								<a>Sélectionner</a>
+							</div>
+						</div>
+					</li>
 				</ul>
 			</div>
 		</div>
-
 		<div id="selection-champion" class="col s12">
 			<div class="container">
 				<!-- page -->
-				<div class="row">
-					<div class="input-field col offset-m6 offset-l9 s12 m6 l3">
+				<div class="row champ-menu">
+					<div class="s3 m3 l2 button-box">
+						<i id="select-all" class="mdi-content-select-all small"></i>
+						<i id="unselect-all" class="mdi-content-clear small"></i>
+					</div>
+					<div class="input-field col offset-s1 offset-m3 offset-l8 s8 m6 l3">
 						<i class="mdi-action-search prefix"></i>
 						<input id="recherche-champ" type="text">
 						<label for="recherche">Chercher</label>
@@ -120,24 +139,71 @@
 				</ul>
 			</div>
 		</div>
+		<div id="selection-mode" class="col s12">
+			<div class="container">
+				<p class="range-field">
+					<input type="range" id="nb-joueurs" min="1" max="5" />
+				</p>
+			</div>
+		</div>
 
-		<div id="selection-mode" class="col s12">Test 3</div>
+		<div class="fixed-action-btn" style="bottom: 25px; right: 25px;">
+			<a class="btn-floating btn-large red">
+				<i class="large mdi-av-play-arrow"></i>
+			</a>
+			<ul>
+				<li>
+					<a class="btn-floating green" id="lancer-mode-classique">
+						<i class="large mdi-av-shuffle"></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="mode-classique" class="container hide result">
+		<div class="row">
+			<img class="champ-loader col s12 m3" src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_0.jpg">
+			<div class="col offset-m1 s12 m8">
+				<h3 class="champ-name">Nom du champion</h3>
+				<h5 class="champ-citation">Commentaire sur lui</h5>
+				<div class="build">
+					<img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/1001.png"></img>
+					<img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/1001.png"></img>
+					<img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/1001.png"></img>
+					<img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/1001.png"></img>
+					<img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/1001.png"></img>
+					<img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/1001.png"></img>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<span class="white-text col l12">
+		        <div class="card-panel green lighten-4 black-text">
+			        <ul class="champ-tips">
+			        	<!-- Conseils gameplay -->
+			        </ul>
+		        </div>
+			</span>
+		</div>
+
+		<div class="fixed-action-btn fixed-buttons-stack" style="bottom: 25px; right: 25px;">
+			<a id="restart-classique" class="btn-floating btn-large waves-effect waves-light blue"><i class="mdi-navigation-refresh"></i></a>
+			<a id="close-classique" class="btn-floating btn-large waves-effect waves-light black"><i class="mdi-navigation-close"></i></a>
+		</div>
 	</div>
 
 
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"></script>
 
 	<script type="text/javascript" src="js/lol-api.js"></script>
 	<script type="text/javascript" src="js/load-api.js"></script>
 	<script type="text/javascript" src="js/champion-select.js"></script>
 	<script type="text/javascript" src="js/carte-select.js"></script>
+	<script type="text/javascript" src="js/play.js"></script>
 	<script type="text/javascript">
 		$(function() {
 			chargerApi(function() {
-				$(".image-sr").attr("src", imgUrl(api.map["11"].image));
-				$(".image-threeline").attr("src", imgUrl(api.map["10"].image));
-				$(".image-abime").attr("src", imgUrl(api.map["12"].image));
 				showStaggeredList('.row');
 				listerChampions();
 			});
