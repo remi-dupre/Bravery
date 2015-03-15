@@ -96,7 +96,7 @@ module.exports = function(grunt) {
         compress: {
             zip: {
                 options: {
-                    archive: 'archive.zip',
+                    archive: 'bravery-build.zip',
                     level: 9
                 },
                 files: [{
@@ -106,7 +106,7 @@ module.exports = function(grunt) {
             },
             tgz: {
                 options: {
-                    archive: 'archive.tar.gz'
+                    archive: 'bravery-build.tar.gz'
                 },
                 files: [{
                     src: ['css/*', 'js/*', 'font/**', 'index.html', 'readme.md'],
