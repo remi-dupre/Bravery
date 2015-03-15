@@ -13,7 +13,7 @@ function listerChampions() {
     /* Crée la liste des champions
      * Dépend de l'api */
     
-    var enregistres = (localStorage["champions_desactives"] || "").split(","); // Les champions a désactiver
+    var enregistres = (localStorage.champions_desactives || "").split(","); // Les champions a désactiver
     for(var champ in api.champion) {
         var icone = $(".champion-img.model").clone().removeClass("model");
         icone.find("img").attr("src", imgUrl(api.champion[champ].image));
@@ -31,7 +31,7 @@ function listerChampions() {
 function switcherChampion(champion) {
     /* ignore ou non le champion */
     var element = $(".champion-img[nom="+champion+"]");
-    element.attr( "ignorer", ""+!(element.attr("ignorer") == "true") );
+    element.attr( "ignorer", ""+ !(element.attr("ignorer") == "true") );
     localStorage["champions_desactives"] = championsDesactives();
 }
 
@@ -77,7 +77,7 @@ function randomChamp() {
         - Ne tire que les champions sélectionnés
         - Ne retire pas le nom d'un champion tant que tous les champions n'ont pas été tirés
     */
-    if( championPool.length == 0 ) initChampionPool();
+    if( championPool.length === 0 ) initChampionPool();
     var i = Math.trunc(Math.random() * championPool.length);
     var champion = championPool[i];
     championPool.splice(i, 1);
