@@ -62,15 +62,47 @@ module.exports = function(grunt) {
             'node_modules',
             '.git',
             'Gruntfile.js', 'package.json', '.travis.yml'
-        ]
+        ],
+        replace: {
+            index : {
+                src: ['index.html'],
+                overwrite: true,
+                replacements: [{
+                    from: /<\!-- dev -->|\b|<\!-- \\dev -->/g,
+                    to: ''
+                },
+                {
+                    from: /<\!-- dist/g,
+                    to: ''
+                },
+                {
+                    from: /\\dist -->/g,
+                    to: ''
+                }]
+            }
+        },
+        htmlmin: {
+            propre : {
+                options : {
+                    removeComments: true,
+                    collapseWhitespace: true,
+                    minifyJS: true
+                },
+                files : {
+                    'index.test.html': 'index.test.html'
+                }
+            }
+        }
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-text-replace');
     grunt.loadNpmTasks('grunt-contrib-clean');
 
     grunt.registerTask('default', ['uglify', 'cssmin', 'jshint', 'copy']);
-    grunt.registerTask('propre', ['uglify', 'cssmin', 'jshint', 'copy', 'clean']);
+    grunt.registerTask('propre', ['uglify', 'cssmin', 'jshint', 'copy', 'replace', 'htmlmin', 'clean']);
 };

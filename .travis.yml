@@ -3,7 +3,7 @@ script: /bin/true
 install:
 - npm install -g grunt-cli
 - npm update
-- grunt propre
+- grunt propre --verbose
 - zip -9r bravery-build ./
 deploy:
   provider: releases
