@@ -4,7 +4,11 @@
 <head>
 	<link type="text/css" rel="stylesheet" href="css/materialize.min.css" />
 	<!-- dev -->
-	<link type="text/css" rel="stylesheet" href="css/bravery.min.css" />
+	<link type="text/css" rel="stylesheet" href="css/src/main.css" />
+	<link type="text/css" rel="stylesheet" href="css/src/loading-api.css" />
+	<link type="text/css" rel="stylesheet" href="css/src/select-carte.css" />
+	<link type="text/css" rel="stylesheet" href="css/src/select-champion.css" />
+	<link type="text/css" rel="stylesheet" href="css/src/play.css" />
 	<!-- \dev -->
 	<!-- dist
 		<link type="text/css" rel="stylesheet" href="css/bravery.min.css" />
@@ -196,7 +200,16 @@
 
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/materialize.min.js"></script>
-	<script type="text/javascript" src="js/bravery.min.js"></script>
+	<!-- dev -->
+		<script type="text/javascript" src="js/src/load-api.js"></script>
+		<script type="text/javascript" src="js/src/lol-api.js"></script>
+		<script type="text/javascript" src="js/src/carte-select.js"></script>
+		<script type="text/javascript" src="js/src/champion-select.js"></script>
+		<script type="text/javascript" src="js/src/play.js"></script>
+	<!-- \dev -->
+	<!-- dist
+		<script type="text/javascript" src="js/bravery.min.js"></script>
+	\dist -->
 	<script type="text/javascript">
 		$(function() {
 			chargerApi(function() {

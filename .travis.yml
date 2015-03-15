@@ -3,8 +3,7 @@ script: /bin/true
 install:
 - npm install -g grunt-cli
 - npm update
-- grunt propre --verbose
-- zip -9r bravery-build ./
+- grunt makebuild --verbose
 deploy:
   provider: releases
   api_key:

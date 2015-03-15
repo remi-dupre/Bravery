@@ -92,6 +92,27 @@ module.exports = function(grunt) {
                     'index.html': 'index.html'
                 }
             }
+        },
+        compress: {
+            zip: {
+                options: {
+                    archive: 'archive.zip',
+                    level: 9
+                },
+                files: [{
+                    src: ['css/*', 'js/*', 'font/**', 'index.html', 'readme.md'],
+                    dest: 'bravery/'
+                }]
+            },
+            tgz: {
+                options: {
+                    archive: 'archive.tar.gz'
+                },
+                files: [{
+                    src: ['css/*', 'js/*', 'font/**', 'index.html', 'readme.md'],
+                    dest: 'bravery/'
+                }]
+            }
         }
     });
 
@@ -102,7 +123,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-text-replace');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-compress');
 
-    grunt.registerTask('default', ['uglify', 'cssmin', 'jshint', 'copy']);
-    grunt.registerTask('propre', ['uglify', 'cssmin', 'jshint', 'copy', 'replace', 'htmlmin', 'clean']);
+    grunt.registerTask('default', ['jshint', 'copy']);
+    grunt.registerTask('makebuild', ['uglify', 'cssmin', 'jshint', 'copy', 'replace', 'htmlmin', 'clean', 'compress']);
 };
