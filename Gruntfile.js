@@ -89,7 +89,7 @@ module.exports = function(grunt) {
                     minifyJS: true
                 },
                 files : {
-                    'index.test.html': 'index.test.html'
+                    'index.html': 'index.html'
                 }
             }
         }
