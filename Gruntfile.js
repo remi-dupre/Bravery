@@ -45,6 +45,10 @@ module.exports = function(grunt) {
                 ]
             }
         },
+        curl: {
+            'css/webui-popover.min.css' : 'https://raw.githubusercontent.com/sandywalker/webui-popover/master/dist/jquery.webui-popover.min.css',
+            'js/webui-popover.min.js' : 'https://raw.githubusercontent.com/sandywalker/webui-popover/master/dist/jquery.webui-popover.min.js'
+        },
         cssmin: {
             options: { },
             combine: {
@@ -68,7 +72,7 @@ module.exports = function(grunt) {
                 src: ['index.html'],
                 overwrite: true,
                 replacements: [{
-                    from: /<\!-- dev -->|\b|<\!-- \\dev -->/g,
+                    from: /<\!-- dev -->.*\n/g,
                     to: ''
                 },
                 {
@@ -120,11 +124,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-curl');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-text-replace');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-compress');
 
-    grunt.registerTask('default', ['jshint', 'copy']);
-    grunt.registerTask('makebuild', ['uglify', 'cssmin', 'jshint', 'copy', 'replace', 'htmlmin', 'clean', 'compress']);
+    grunt.registerTask('default', ['jshint', 'copy', 'curl']);
+    grunt.registerTask('makebuild', ['uglify', 'cssmin', 'jshint', 'copy', 'curl', 'replace', 'htmlmin', 'clean', 'compress']);
 };

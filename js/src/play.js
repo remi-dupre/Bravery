@@ -24,9 +24,9 @@ function genClassique() {
     }
     
     genItemsPool();
-    $($(".build img")[0]).attr("src", imgUrl(api.item[finirItem(1001)].image));
-    for(var i = 1 ; i < 6 ; i++) {
-        $($(".build img")[i]).attr("src", imgUrl(api.item[randomFullItem()].image));
+    $($(".build img")[0]).itemSlot(finirItem(1001));
+    for(i = 1 ; i < 6 ; i++) {
+        $($(".build img")[i]).itemSlot(randomFullItem());
     }
 }
 
@@ -77,20 +77,6 @@ function randomFullItem() {
         }
     }
     return randomElement(grosItems);
-}
-
-function faitAvec(item, fils) {
-    /* Retourne vrai si l'item (id) est réalisé avec l'item fils (id) */
-    if(parseInt(item) == parseInt(fils)) return true;
-    
-    var avec = false;
-    item = api.item[item];
-    if( typeof item.from != "undefined" ) {
-        for(var i in item.from) {
-            avec = faitAvec(item.from[i], fils) || avec;
-        }
-    }
-    return avec;
 }
 
 function randomElement(array) {
