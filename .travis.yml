@@ -1,6 +1,7 @@
 language: javascript
 script: /bin/true
 install:
+- apt-get install python3
 - npm install -g grunt-cli
 - npm update
 - grunt makebuild --verbose
