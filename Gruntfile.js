@@ -47,8 +47,8 @@ module.exports = function(grunt) {
             forbuild: {
                 files: [
                     {
-                        src: 'node_modules/materialize-css/dist/font/roboto/*',
-                        dest: 'font/roboto/'
+                        src: 'index.html',
+                        dest: 'index.offline.html'
                     }
                 ]
             }
@@ -90,7 +90,7 @@ module.exports = function(grunt) {
                 }]
             },
             offline : {
-                src: ['index.html'],
+                src: ['index.offline.html'],
                 overwrite: true,
                 replacements: [{
                     from: /<\!-- offline/g,
