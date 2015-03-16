@@ -141,8 +141,7 @@ module.exports = function(grunt) {
                     level: 9
                 },
                 files: [{
-                    src: ['css/*', 'js/*', 'lol-api/**', 'font/**', 'readme.md',
-                           {src: 'index.offline.html', dest: 'index.html'} ],
+                    src: ['css/*', 'js/*', 'lol-api/**', 'font/**', 'readme.md', 'index.offline.html' ],
                     dest: 'bravery/'
                 }]
             }
