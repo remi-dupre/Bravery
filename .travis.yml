@@ -10,7 +10,7 @@ deploy:
     secure: TEB/UF7GiZ2pgfKEf/0JxhsQsKqRiYk+AS2ySsBlIRrha6JUaO2aITqDLZuntmfbCHwHa4j9atqdaw7qZU28DJa5t+HPV3g3ELDsQOP3yElYy5tTdJ+/USNvTj1064eI48Fa/jIRi3mnSwRB2Y21IBNSycFHVeM74tHfT0owq8M=
   file:
    - bravery-build.zip
-   - bravery-build.tar.gz
+   - bravery-build-offline.zip
   skip_cleanup: true
   on:
     tags: true
