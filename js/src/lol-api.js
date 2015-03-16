@@ -1,9 +1,17 @@
+$(function() {
+    $("[carte]").each(function() {
+        var base = (typeof OFFLINE == "undefined") ? "http://cdn.leagueoflegends.com/game-info/1.1.9/images/content" : "lol-api/map";
+        $(this).attr("src", base + "/modes-" + $(this).attr("carte") + ".jpg");
+    });
+})
+
 function imgUrl(img) {
     /* Donne l'url d'une image
      * Entrée : json décrivant l'image
      * Sortie : l'url de l'image
 	 */
-    return "http://ddragon.leagueoflegends.com/cdn/5.5.2/img/"+ img.group +"/"+ img.full;
+    var base = (typeof OFFLINE == "undefined") ? "http://ddragon.leagueoflegends.com/cdn/5.5.2/img/" : "lol-api/";
+    return base + img.group +"/"+ img.full;
 }
 
 function champLoadingImg(champ, randomSkin) {
@@ -12,7 +20,13 @@ function champLoadingImg(champ, randomSkin) {
 	var skinPool = champ.skins;
 	for(var i = 0 ; i < 9 ; i++) skinPool.push(champ.skins[0]);
 	var skin = randomSkin ? randomElement(skinPool) : champ.skins[0];
-    return "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champ.key + "_" + skin.num + ".jpg";
+    var base = (typeof OFFLINE == "undefined") ? "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" : "lol-api/champion/loading/";
+    return base + champ.key + "_" + skin.num + ".jpg";
+}
+
+function uiImg(img) {
+    var base = (typeof OFFLINE == "undefined") ? "http://ddragon.leagueoflegends.com/cdn/5.2.1/img/ui/" : "lol-api/ui/";
+    return base + img + ".png";
 }
 
 function faitAvec(item, fils) {
@@ -78,7 +92,7 @@ $.fn.itemSlot = function(newItem) {
 		this.on("shown.webui.popover", function(e) {
 			var element = $("#"+$(e.target).attr("data-target"));
 			var item = api.item[$(this).attr("item")];
-			element.find(".webui-popover-title").html(item.name + " - " + item.gold.total+'<img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/ui/gold.png" />');
+			element.find(".webui-popover-title").html(item.name + " - " + item.gold.total+'<img src="'+uiImg('gold')+'" />');
 			element.find(".webui-popover-content").html(fullItemDescription(item));
 		});
 	}

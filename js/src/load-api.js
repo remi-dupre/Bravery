@@ -30,14 +30,15 @@ function chargerApi(onDone) {
      
     api_after_loaded = onDone;
     $("#loading-api-container").removeClass("hide");
-     
+    
     for(var fichier in api) {
         var ligne = $(".fichier-api.model").clone().removeClass("model");
         ligne.find(".title").text(api[fichier].nom);
         ligne.find("p").text(api[fichier].description);
         ligne.attr("api-nom", fichier).appendTo($("#api-liste"));
+        var adresse = (typeof OFFLINE == "undefined") ? "lol-api/" + fichier + ".json" : api[fichier].adresse;
         
-        $.getJSON(api[fichier].adresse, function(data) {
+        $.getJSON(adresse, function(data) {
             api[data.type] = data.data;
             $(".fichier-api[api-nom="+data.type+"] i").removeClass("mdi-action-autorenew").addClass("mdi-action-done");
             api_loaded++;

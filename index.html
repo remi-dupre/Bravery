@@ -67,7 +67,7 @@
 					<li class="col s12 m6" style="opacity:0">
 						<div class="card carte-select" mapid=1>
 							<div class="card-image">
-								<img class="image-sr" src="http://cdn.leagueoflegends.com/game-info/1.1.9/images/content/modes-sr.jpg">
+								<img class="image-sr" carte="sr">
 								<span class="card-title">Faille de l'invocateur</span>
 							</div>
 							<div class="card-content">
@@ -81,7 +81,7 @@
 					<li class="col s12 m6" style="opacity:0">
 						<div class="card carte-select" mapid=10>
 							<div class="card-image">
-								<img class="image-threeline" src="http://cdn.leagueoflegends.com/game-info/1.1.9/images/content/modes-tt.jpg">
+								<img class="image-threeline" carte="tt">
 								<span class="card-title">Forêt torturée</span>
 							</div>
 							<div class="card-content">
@@ -95,7 +95,7 @@
 					<li class="col s12 m6" style="opacity:0">
 						<div class="card carte-select" mapid=12>
 							<div class="card-image">
-								<img class="image-abime" src="http://cdn.leagueoflegends.com/game-info/1.1.9/images/content/modes-ha.jpg">
+								<img class="image-abime" carte="ha">
 								<span class="card-title">Abîme hurlante</span>
 							</div>
 							<div class="card-content">
@@ -109,7 +109,7 @@
 					<li class="col s12 m6" style="opacity:0">
 						<div class="card carte-select" mapid=8>
 							<div class="card-image">
-								<img class="image-cristal" src="http://cdn.leagueoflegends.com/game-info/1.1.9/images/content/modes-cs.jpg">
+								<img class="image-cristal" carte="cs">
 								<span class="card-title">Brêche de cristal</span>
 							</div>
 							<div class="card-content">
@@ -146,8 +146,17 @@
 		</div>
 		<div id="selection-mode" class="col s12">
 			<div class="container">
-				<p class="range-field">
-					<input type="range" id="nb-joueurs" min="1" max="5" />
+				<h3>Mode classique</h3>
+				<p>
+					<input type="checkbox" id="repetition" />
+					<label for="repetition">Autoriser la répétition d'items</label>
+				</p>
+				<h3>Mode évolutif</h3>
+				<p>
+					<p class="range-field">
+						<label for="nb-joueurs">Nombre de joueurs</label>
+						<input type="range" id="nb-joueurs" min="1" max="5" />
+					</p>
 				</p>
 			</div>
 		</div>
@@ -159,7 +168,14 @@
 			<ul>
 				<li>
 					<a class="btn-floating green" id="lancer-mode-classique">
+						<div class="float-button-desc">Mode classique</div>
 						<i class="large mdi-av-shuffle"></i>
+					</a>
+				</li>
+				<li>
+					<a class="btn-floating green" id="lancer-mode-evolutif">
+						<div class="float-button-desc">Mode évolutif</div>
+						<i class="large mdi-image-palette"></i>
 					</a>
 				</li>
 			</ul>
@@ -198,6 +214,11 @@
 	</div>
 
 
+	<!-- offline
+		<script type="text/javascript">
+			var OFFLINE = true;
+		</script>
+	\offline -->
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/materialize.min.js"></script>
 	<script type="text/javascript" src="js/webui-popover.min.js"></script>

@@ -62,13 +62,10 @@ module.exports = function(grunt) {
         },
         clean : [
             'css/src',
-            'js/src',
-            'node_modules',
-            '.git',
-            'Gruntfile.js', 'package.json', '.travis.yml'
+            'js/src'
         ],
         replace: {
-            index : {
+            propre : {
                 src: ['index.html'],
                 overwrite: true,
                 replacements: [{
@@ -81,6 +78,18 @@ module.exports = function(grunt) {
                 },
                 {
                     from: /\\dist -->/g,
+                    to: ''
+                }]
+            },
+            offline : {
+                src: ['index.html'],
+                overwrite: true,
+                replacements: [{
+                    from: /<\!-- offline/g,
+                    to: ''
+                },
+                {
+                    from: /\\offline -->/g,
                     to: ''
                 }]
             }
@@ -98,7 +107,7 @@ module.exports = function(grunt) {
             }
         },
         compress: {
-            zip: {
+            propre: {
                 options: {
                     archive: 'bravery-build.zip',
                     level: 9
@@ -108,15 +117,19 @@ module.exports = function(grunt) {
                     dest: 'bravery/'
                 }]
             },
-            tgz: {
+            offline: {
                 options: {
-                    archive: 'bravery-build.tar.gz'
+                    archive: 'bravery-build-offline.zip',
+                    level: 9
                 },
                 files: [{
-                    src: ['css/*', 'js/*', 'font/**', 'index.html', 'readme.md'],
+                    src: ['css/*', 'js/*', 'lol-api/**', 'font/**', 'index.html', 'readme.md'],
                     dest: 'bravery/'
                 }]
             }
+        },
+        exec : {
+            download_api : 'python3 lol-api-dowload.py'
         }
     });
 
@@ -129,7 +142,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-text-replace');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-compress');
+    grunt.loadNpmTasks('grunt-exec');
 
     grunt.registerTask('default', ['jshint', 'copy', 'curl']);
-    grunt.registerTask('makebuild', ['uglify', 'cssmin', 'jshint', 'copy', 'curl', 'replace', 'htmlmin', 'clean', 'compress']);
+    grunt.registerTask('basebuild', ['uglify', 'cssmin', 'jshint', 'copy', 'curl', 'clean']);
+    
+    grunt.registerTask('propre', ['basebuild', 'replace:propre', 'htmlmin', 'compress:propre']);
+    grunt.registerTask('offline', ['exec:download_api', 'replace:offline', 'propre', 'compress:offline']);
+    grunt.registerTask('makebuid', ['propre', 'offline']);
 };
