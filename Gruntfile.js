@@ -129,7 +129,7 @@ module.exports = function(grunt) {
             }
         },
         exec : {
-            download_api : 'python3 lol-api-dowload.py'
+            download_api : 'python3 lol-api-download.py'
         }
     });
 
