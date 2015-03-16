@@ -43,6 +43,14 @@ module.exports = function(grunt) {
                         dest: 'font/roboto/'
                     }
                 ]
+            },
+            forbuild: {
+                files: [
+                    {
+                        src: 'node_modules/materialize-css/dist/font/roboto/*',
+                        dest: 'font/roboto/'
+                    }
+                ]
             }
         },
         curl: {
@@ -66,7 +74,7 @@ module.exports = function(grunt) {
         ],
         replace: {
             propre : {
-                src: ['index.html'],
+                src: ['index.html', 'index.offline.html'],
                 overwrite: true,
                 replacements: [{
                     from: /<\!-- dev -->.*\n/g,
@@ -104,6 +112,16 @@ module.exports = function(grunt) {
                 files : {
                     'index.html': 'index.html'
                 }
+            },
+            offline : {
+                options : {
+                    removeComments: true,
+                    collapseWhitespace: true,
+                    minifyJS: true
+                },
+                files : {
+                    'index.offline.html': 'index.offline.html'
+                }
             }
         },
         compress: {
@@ -123,7 +141,8 @@ module.exports = function(grunt) {
                     level: 9
                 },
                 files: [{
-                    src: ['css/*', 'js/*', 'lol-api/**', 'font/**', 'index.html', 'readme.md'],
+                    src: ['css/*', 'js/*', 'lol-api/**', 'font/**', 'readme.md',
+                           {src: 'index.offline.html', dest: 'index.html'} ],
                     dest: 'bravery/'
                 }]
             }
@@ -144,10 +163,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-exec');
 
-    grunt.registerTask('default', ['jshint', 'copy', 'curl']);
+    grunt.registerTask('default', ['jshint', 'copy:main', 'curl']);
     grunt.registerTask('basebuild', ['uglify', 'cssmin', 'jshint', 'copy', 'curl', 'clean']);
     
-    grunt.registerTask('propre', ['basebuild', 'replace:propre', 'htmlmin', 'compress:propre']);
-    grunt.registerTask('offline', ['exec:download_api', 'replace:offline', 'compress:offline']);
-    grunt.registerTask('makebuild', ['propre', 'offline']);
+    grunt.registerTask('propre', ['replace:propre', 'htmlmin:propre', 'compress:propre']);
+    grunt.registerTask('offline', ['exec:download_api', 'replace:offline', 'htmlmin:offline', 'compress:offline']);
+    grunt.registerTask('makebuild', ['basebuild', 'offline', 'propre']);
 };
