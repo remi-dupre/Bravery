@@ -90,7 +90,6 @@ failed = []
 for champ in champions["data"] :
     champ = champions["data"][champ]
     for skin in champ["skins"] :
-        print(skinUrl(champ, skin))
         try :
             url.urlretrieve(skinUrl(champ, skin), INSTALL_DIRECTORY + "/champion/loading/" + skinFile(champ, skin))
         except :

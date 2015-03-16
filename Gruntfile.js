@@ -148,6 +148,6 @@ module.exports = function(grunt) {
     grunt.registerTask('basebuild', ['uglify', 'cssmin', 'jshint', 'copy', 'curl', 'clean']);
     
     grunt.registerTask('propre', ['basebuild', 'replace:propre', 'htmlmin', 'compress:propre']);
-    grunt.registerTask('offline', ['exec:download_api', 'replace:offline', 'propre', 'compress:offline']);
+    grunt.registerTask('offline', ['exec:download_api', 'replace:offline', 'compress:offline']);
     grunt.registerTask('makebuild', ['propre', 'offline']);
 };
