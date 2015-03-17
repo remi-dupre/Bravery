@@ -36,7 +36,7 @@ function chargerApi(onDone) {
         ligne.find(".title").text(api[fichier].nom);
         ligne.find("p").text(api[fichier].description);
         ligne.attr("api-nom", fichier).appendTo($("#api-liste"));
-        var adresse = (typeof OFFLINE == "undefined") ? "lol-api/" + fichier + ".json" : api[fichier].adresse;
+        var adresse = (typeof OFFLINE != "undefined") ? "lol-api/" + fichier + ".json" : api[fichier].adresse;
         
         $.getJSON(adresse, function(data) {
             api[data.type] = data.data;
