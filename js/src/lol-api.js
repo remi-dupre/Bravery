@@ -16,9 +16,9 @@ function imgUrl(img) {
 
 function champLoadingImg(champ, randomSkin) {
     /* Donne l'url de l'image de chargement d'un champion */
-	randomSkin = randomSkin || true;
+	randomSkin = (randomSkin || true) && $("#skins").status();
 	var skinPool = champ.skins;
-	for(var i = 0 ; i < 9 ; i++) skinPool.push(champ.skins[0]);
+    for(var i=1 ; i < 20 ; i++) skinPool.push(champ.skins[0]);
 	var skin = randomSkin ? randomElement(skinPool) : champ.skins[0];
     var base = (typeof OFFLINE == "undefined") ? "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" : "lol-api/champion/loading/";
     return base + champ.key + "_" + skin.num + ".jpg";
