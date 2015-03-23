@@ -25,8 +25,14 @@ function genClassique() {
     
     genItemsPool();
     $($(".build img")[0]).itemSlot(finirItem(1001));
+    var faits = [];
     for(i = 1 ; i < 6 ; i++) {
-        $($(".build img")[i]).itemSlot(randomFullItem());
+        var item = randomFullItem();
+        if(!$("#repetition").status()) { // Reselectione en cas de répétiton
+            while( faits.indexOf(item) > -1 ) item = randomFullItem();
+            faits.push(item);
+        }
+        $($(".build img")[i]).itemSlot(item);
     }
 }
 
