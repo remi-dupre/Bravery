@@ -3,6 +3,9 @@ $(function() {
         var base = (typeof OFFLINE == "undefined") ? "http://cdn.leagueoflegends.com/game-info/1.1.9/images/content" : "lol-api/map";
         $(this).attr("src", base + "/modes-" + $(this).attr("carte") + ".jpg");
     });
+    $("[api-ui]").each(function() {
+        $(this).attr("src", uiImg($(this).attr("api-ui")));
+    });
 })
 
 function imgUrl(img) {
