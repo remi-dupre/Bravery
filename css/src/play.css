@@ -2,6 +2,17 @@
     margin-top: 40px;
 }
 
+@media only screen and (max-width : 600px) {
+    .champ-loader {
+        padding: 0;
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        opacity: 0.2;
+        z-index: -1;
+    }
+}
+
 h3.champ-name {
     margin-bottom: 0px;
 }
@@ -13,13 +24,15 @@ h5.champ-citation {
 
 .build {
     display: flex;
+    flex-direction: row;
     margin-top: 30px;
 }
 
 
-.build .progress {
+.progress {
     transition-duration: 1s;
     margin-top: 5px;
+    height: 10px;
 }
 
 .build > div {
