@@ -4,12 +4,12 @@ $(function() {
         $("#configurer").addClass("hide");
         genClassique();
     });
-    
+
     $("#close-classique").click(function() {
         $("#mode-classique").addClass("hide");
         $("#configurer").removeClass("hide");
     });
-    
+
     $("#restart-classique").click(genClassique);
 });
 
@@ -22,7 +22,7 @@ function genClassique() {
     for(var i in api.champion[champion].allytips) {
         $(".champ-tips").append("<li>" + api.champion[champion].allytips[i] + "</li>");
     }
-    
+
     genItemsPool();
     $($(".build img")[0]).itemSlot(finirItem(1001));
     var faits = [];
@@ -62,7 +62,6 @@ function finirItem(item) {
     /* Prend l'id d'un item en argument
      * Retourne un item en fin d'arbre alléatoire
      */
-    
     while( typeof api.item[item].into != "undefined" ) {
         item = randomElement(api.item[item].into);
     }
@@ -86,6 +85,7 @@ function randomFullItem() {
 }
 
 function randomElement(array) {
+    /* Retourne un élément aléatoire dans un array */
     var i = Math.trunc( Math.random() * array.length );
     return array[i];
 }
