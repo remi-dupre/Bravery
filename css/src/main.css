@@ -35,3 +35,7 @@ ul.tabs, ul.tabs > li.tab {
     padding: 5px;
     min-width: 100px;
 }
+
+.collection .collection-item.avatar .title {
+    font-weight: bold;
+}

@@ -13,7 +13,7 @@ $.fn.setBuild = function(build) {
 
 $.fn.setTendance = function(tendance) {
     /* Prend en argument un array décrivant la tendance */
-    $(this).find(".ap").attr("style", "width:" + Math.trunc(tendance.tank*100) + "%;");
+    $(this).find(".tank").attr("style", "width:" + Math.trunc(tendance.tank*100) + "%;");
     $(this).find(".ad").attr("style", "width:" + Math.trunc((tendance.ad+tendance.tank)*100) + "%;");
 }
 
