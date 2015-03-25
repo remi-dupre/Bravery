@@ -35,7 +35,7 @@ function uiImg(img) {
 function faitAvec(item, fils) {
     /* Retourne vrai si l'item (id) est réalisé avec l'item fils (id) */
     if(parseInt(item) == parseInt(fils)) return true;
-    
+
     var avec = false;
     item = api.item[item];
     if( typeof item.from != "undefined" ) {
@@ -58,7 +58,7 @@ function fullItemDescription(item) {
         item = api.item[item.from[0]];
         description += item.description;
     }
-	
+
     var descriptionHtml = $("<div><div class='item-description'>"+ description +"</div></div>");
     descriptionHtml.find("calc").replaceWith("...");
     descriptionHtml.find("i:not(:last-child)").remove();
@@ -69,7 +69,7 @@ function fullItemDescription(item) {
         var i = descriptionHtml.html().length;
         descriptionHtml.html(descriptionHtml.html().replace("<br><br><br>", "<br><br>"));
     }
-    
+
     return descriptionHtml.html();
 }
 

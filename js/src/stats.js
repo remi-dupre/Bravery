@@ -13,12 +13,16 @@ function tendance(build) {
     }
     for(var i in build) {
         var item = build[i];
-        var stats = api.item[item].stat || {};
+        var stats = api.item[item].stats || {};
         for(var stat in stats) {
             var carac = ratioStat[stat] || { type : "tank", ratio : 0 };
             ratios[carac.type] += carac.ratio * stats[stat];
         }
     }
+    var total = ratios.tank + ratios.ad + ratios.ap;
+    ratios.tank /= total;
+    ratios.ad /= total;
+    ratios.ap /= total;
     return ratios;
 }
 
@@ -26,7 +30,7 @@ function prixTotal(build) {
     /* Retourne le prix total d'un build */
     var prix = 0;
     for(var i in build) {
-        api.item[build[i]].gold.total;
+        prix += api.item[build[i]].gold.total;
     }
     return prix;
 }

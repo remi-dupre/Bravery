@@ -1,13 +1,20 @@
-$.fn.setBuild(build) {
+$.fn.setBuild = function(build) {
     /* Affiche un build sur la page
      * Entrée : un build [.., .., etc ...]
      * Sortie :
      *  - modifie la liste des items du build
      *  - modifie les affichages contenant l'attribut for=idbuild
      */
-    for(var i in build) {
+    for(var i = 0 ; i < build.length ; i++) {
+        var item = build[i];
         $($(this).find("img")[i]).itemSlot(item);
     }
+};
+
+$.fn.setTendance = function(tendance) {
+    /* Prend en argument un array décrivant la tendance */
+    $(this).find(".ap").attr("style", "width:" + Math.trunc(tendance.tank*100) + "%;");
+    $(this).find(".ad").attr("style", "width:" + Math.trunc((tendance.ad+tendance.tank)*100) + "%;");
 }
 
 var item_pool = [];
