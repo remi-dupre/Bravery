@@ -29,8 +29,7 @@ h5.champ-citation {
 }
 
 
-.progress.tendance {
-    transition-duration: 1s;
+.tendance {
     margin-top: 5px;
     height: 10px;
 }
@@ -44,4 +43,3 @@ h5.champ-citation {
 .build > div > img {
     width: 100%;
 }
-

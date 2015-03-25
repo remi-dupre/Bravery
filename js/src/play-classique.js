@@ -33,13 +33,17 @@ function genClassique() {
     }
 
     genItemsPool();
-    var faits = [ $(page.find(".build img")[0]).itemSlot(finirItem(1001)) ];
+    var build = [ finirItem(1001) ];
     for(i = 1 ; i < 6 ; i++) {
         var item = randomFullItem();
         if(!$("#repetition").status()) { // Reselectione en cas de répétiton
-            while( faits.indexOf(item) > -1 ) item = randomFullItem();
+            while( build.indexOf(item) > -1 ) item = randomFullItem();
         }
-        faits.push(item);
+        build.push(item);
     }
-    page.find(".build").setBuild(faits);
+    console.info(build);
+    page.find(".cout-total").text(prixTotal(build));
+    page.find(".cout-moyen").text(Math.trunc(prixTotal(build)/6));
+    page.find(".tendance").setTendance(tendance(build));
+    page.find(".build").setBuild(build);
 }
