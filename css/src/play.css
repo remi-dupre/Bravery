@@ -19,7 +19,7 @@ h3.champ-name {
 
 h5.champ-citation {
     margin-top: 0px;
-    color: lightgrey;
+    color: grey;
 }
 
 .build {
@@ -29,7 +29,7 @@ h5.champ-citation {
 }
 
 
-.progress {
+.progress.tendance {
     transition-duration: 1s;
     margin-top: 5px;
     height: 10px;
