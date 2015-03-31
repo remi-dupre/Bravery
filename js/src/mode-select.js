@@ -1,7 +1,8 @@
 $(function() {
     $("#skins").option({ defaut : true });
     $("#repetition").option({ defaut : false });
-    $("#nb-joueurs").option({ defaut : 2 });
+    $("#jungle").option({ defaut : false });
+    $("#nb-joueurs").option({ defaut : 5 });
 });
 
 $.fn.option = function(params) {

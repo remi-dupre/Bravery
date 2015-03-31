@@ -50,13 +50,14 @@ function randomFullItem() {
     /* Donne un item fini alléatoire
      *  /!\ Utilise item_pool  et le modifie
      *      Les bottes ne peuvent pas être choisis
-     *      Pas d'item jungle non plus -> finishItem(1039)
+     *       - Pas d'item jungle non plus -> finishItem(1039)
+     *       - Pas la connerie de victor -> finishItem(3200)
      *      Les items de moins de 1000po ne peuvent pas être choisis
      */
     var grosItems = [];
     for(var i in item_pool) {
         var item = item_pool[i];
-        if( typeof api.item[item].into == "undefined" && !faitAvec(item, 1001) && !faitAvec(item, 1039) && api.item[item].gold.total > 1000 ) {
+        if( typeof api.item[item].into == "undefined" && !faitAvec(item, 1001) && !faitAvec(item, 1039) && !faitAvec(item, 3200) && api.item[item].gold.total > 1000 ) {
             grosItems.push(item);
         }
     }

@@ -7,6 +7,7 @@ $(function() {
     $("#lancer-mode-classique").click(function() {
         $("#mode-classique").removeClass("hide");
         $("#configurer").addClass("hide");
+        initChampionPool();
         genClassique();
     });
 
@@ -33,13 +34,18 @@ function genClassique() {
     }
 
     genItemsPool();
-    var build = [ finirItem(1001) ];
-    for(i = 1 ; i < 6 ; i++) {
-        var item = randomFullItem();
-        if(!$("#repetition").status()) { // Reselectione en cas de répétiton
-            while( build.indexOf(item) > -1 ) item = randomFullItem();
+    var build = [ 1001 ];
+    if($("#jungle").status()) build.push(1039);
+    if(api.champion[champion].name == "Viktor") build.push(3200);
+    for(i = 0 ; i < 6 ; i++) {
+        if(typeof build[i] == "undefined") {
+            var item = randomFullItem();
+            if(!$("#repetition").status()) { // Resélectione en cas de répétiton
+                while( build.indexOf(item) > -1 ) item = randomFullItem();
+            }
+            build.push(item);
         }
-        build.push(item);
+        else build[i] = finirItem(build[i]);
     }
     console.info(build);
     page.find(".cout-total").text(prixTotal(build));

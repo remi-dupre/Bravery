@@ -6,7 +6,7 @@ var api = {
     champion : {
         nom : "Champions",
         description : "Liste et informations sur les champions",
-        adresse : "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion?locale=fr_FR&champData=allytips,skins,altimages,image,tags&api_key=d19e6095-3a97-4721-b23d-a7710557acb1"
+        adresse : "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion?locale=fr_FR&champData=all&api_key=d19e6095-3a97-4721-b23d-a7710557acb1"
     },
     item : {
         nom : "Items",
