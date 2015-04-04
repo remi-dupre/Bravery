@@ -11,6 +11,7 @@
 	<!-- dev --> <link type="text/css" rel="stylesheet" href="css/src/select-champion.css" />
 	<!-- dev --> <link type="text/css" rel="stylesheet" href="css/src/select-mode.css" />
 	<!-- dev --> <link type="text/css" rel="stylesheet" href="css/src/play-classique.css" />
+	<!-- dev --> <link type="text/css" rel="stylesheet" href="css/src/play-evolutif.css" />
 	<!-- dist
 		<link type="text/css" rel="stylesheet" href="css/bravery.min.css" />
 	\dist -->
@@ -20,7 +21,7 @@
 </head>
 
 <body>
-	<div id="loading-api-container" class="grey lighten-3 hide">
+	<div id="loading-api-container" class="grey lighten-3 fullscreen hide">
 		<div id="loading-api">
 			<div class="progress">
 				<div class="indeterminate"></div>
@@ -239,13 +240,67 @@
 		        </div>
 			</span>
 		</div>
-
+		
+		<!-- Boutons de contrôle -->
 		<div class="fixed-action-btn fixed-buttons-stack" style="bottom: 25px; right: 25px;">
-			<a id="restart-classique" class="btn-floating btn-large waves-effect waves-light blue"><i class="mdi-navigation-refresh"></i></a>
-			<a id="close-classique" class="btn-floating btn-large waves-effect waves-light black"><i class="mdi-navigation-close"></i></a>
+			<a id="restart-classique" class="btn-floating btn-large waves-effect waves-light indigo"><i class="mdi-navigation-refresh"></i></a>
+			<a id="close-classique" class="btn-floating btn-large waves-effect waves-light grey darken-3"><i class="mdi-navigation-close"></i></a>
 		</div>
 	</div>
-
+    <div id="mode-evolutif" class="hide row">
+    	<!-- Page de sélection des champions -->
+    	<div id="mode-evolutif-champ" class="container">
+			<div class="col l12">
+				<div class="card blue-grey darken-1">
+					<div class="card-content white-text">
+						<span class="card-title">Sélection des champions (1/2)</span>
+						<p>Sélectionnez des champions pour chaques participants. Noubliez pas d'assigner chaque champion à un joueur.</p>
+					</div>
+					<div class="card-action">
+						<a>étape suivante</a>
+					</div>
+				</div>
+			</div>
+    		<div class="col l4 m6 s12 model champ-selector">
+    			<!-- Modèle de carte pour la sélection d'un champion -->
+		    	<div class="card">
+		    		<div class="card-image waves-effect waves-block waves-light">
+		    			<img class="activator" src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_0.jpg">
+		    		</div>
+		    		<div class="card-content">
+		    			<span class="card-title grey-text text-darken-4"><span class="champ-name">Nom champ</span> <i class="mdi-action-info right activator"></i> <i class="mdi-navigation-refresh change right"></i></span>
+		    			<p class="commentaire">Pense pas au jeu</p>
+		    		</div>
+		    		<div class="card-reveal">
+		    			<span class="card-title grey-text text-darken-4"><span class="champ-name">Nom champ</span> <i class="mdi-navigation-close right"></i></span>
+						<p class="commentaire">Ici non plus</p>
+						<p>
+							<div class="progress grey lighten-2">
+								<div class="determinate red darken-3 info-attack" style="width: 70%"></div>
+							</div>
+							<div class="progress grey lighten-2">
+								<div class="determinate green darken-3 info-defense" style="width: 70%"></div>
+							</div>
+							<div class="progress grey lighten-2">
+								<div class="determinate blue darken-3 info-magic" style="width: 70%"></div>
+							</div>
+							<div class="progress grey lighten-2">
+								<div class="determinate purple darken-3 info-difficulty" style="width: 70%"></div>
+							</div>
+						</p>
+						<div class="separateur"></div>
+		    			<p class="champ-description"></p>
+		    		</div>
+		    	</div>
+	    	</div>
+    	</div>
+		
+		<!-- Boutons de contrôle -->
+		<div class="fixed-action-btn fixed-buttons-stack" style="bottom: 25px; right: 25px;">
+			<a id="restart-champ-evolutif" class="btn-floating btn-large waves-effect waves-light indigo"><i class="mdi-navigation-refresh"></i></a>
+			<a id="close-evolutif" class="btn-floating btn-large waves-effect waves-light grey darken-3"><i class="mdi-navigation-close"></i></a>
+		</div>
+    </div>
 
 	<!-- offline
 		<script type="text/javascript">
@@ -265,6 +320,7 @@
 	<!-- dev --> <script type="text/javascript" src="js/src/stats.js"></script>
 	<!-- dev --> <script type="text/javascript" src="js/src/build.js"></script>
 	<!-- dev --> <script type="text/javascript" src="js/src/play-classique.js"></script>
+	<!-- dev --> <script type="text/javascript" src="js/src/play-evolutif.js"></script>
 	<!-- dist
 		<script type="text/javascript" src="js/bravery.min.js"></script>
 	\dist -->

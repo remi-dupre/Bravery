@@ -1,12 +1,15 @@
 #loading-api-container:not(.hide) {
+    display: flex;
+    align-items: center;
+}
+
+.fullscreen:not(.hide) {
     z-index: 1337;
     position: fixed;
     top: 0px;
     left: 0px;
     height: 100%;
     width: 100%;
-    display: flex;
-    align-items: center;
 }
 
 #loading-api {

@@ -39,3 +39,8 @@ ul.tabs, ul.tabs > li.tab {
 .collection .collection-item.avatar .title {
     font-weight: bold;
 }
+
+.separateur {
+    margin: 20px;
+    border-top: medium solid lightgrey;
+}

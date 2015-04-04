@@ -1,0 +1,27 @@
+#mode-evolutif {
+    padding-top: 30px;
+}
+
+/* *************** Sélection des champions *************** */
+
+#mode-evolutif-champ .card-image > img {
+    position: fixed;
+    margin-top: -20px;
+    width: calc(100% + 40px);
+    margin-left: -20px;
+}
+
+#mode-evolutif-champ .card-image {
+    height: 300px;
+}
+
+#mode-evolutif-champ .card i {
+    cursor: pointer;
+    display: inline-block;
+    z-index: 10000;
+}
+
+#mode-evolutif-champ .card .commentaire {
+    margin-top: 0px;
+    color: grey;
+}
