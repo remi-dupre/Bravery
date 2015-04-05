@@ -4,6 +4,14 @@ html, body {
     padding: 0;
 }
 
+a {
+    cursor: pointer;
+}
+
+nav {
+    padding: 0px 20px;
+}
+
 .model {
     display: none;
 }

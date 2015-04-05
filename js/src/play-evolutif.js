@@ -7,10 +7,14 @@ $(function(){
     $("#restart-champ-evolutif").click(function(){
         $(".champ-selector:not(.model)").champSelect();
     });
-    $("#close-evolutif").click(function(){
+    $(".close-evolutif").click(function(){
         $("#mode-evolutif").addClass("hide");
         $("#configurer").removeClass("hide");
     });
+    $(".mode-evolutif-step2").click(function(){
+        $("#mode-evolutif-champ").addClass("hide");
+        $("#mode-evolutif-items").removeClass("hide");
+    })
 });
 
 function lancerModeEvolutif() {

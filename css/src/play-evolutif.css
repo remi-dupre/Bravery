@@ -25,3 +25,36 @@
     margin-top: 0px;
     color: grey;
 }
+
+/* *************** Sélection des items *************** */
+
+#mode-evolutif-items .info-player {
+    text-align: center;
+}
+
+#mode-evolutif-items .nom-champ {
+    display: inline;
+    vertical-align: super;
+}
+
+#mode-evolutif-items .liste-joueurs {
+    display: inline-block;
+    height: 70px;
+    font-size: 0px; /* Pas d'espacement entre les images */
+}
+
+#mode-evolutif-items .liste-joueurs > img {
+    width: 60px;
+    margin-bottom: 5px;
+    position: relative; /* Permet l'utilisation de z-index */
+}
+
+#mode-evolutif-items .liste-joueurs > img:not(:last-child) {
+    margin-right: -45px;
+}
+
+#mode-evolutif-items .liste-joueurs > img.active {
+    width: 70px;
+    margin-bottom: 0px;
+    z-index: 1;
+}
